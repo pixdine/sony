@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon_144x144.png">
-	<title>소니 세미컨덕터 솔루션</title>
+	<title>소니 세미컨덕터 솔루션 코리아</title>
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" type="text/css" href="./assets/css/common.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/library.css">
@@ -123,7 +123,7 @@
 				<!-- 소개 -->
 				<div class="main_sense">
 					<div class="cont_inner">
-						<div data-aos="fade-up" data-aos-offset="0" data-aos-delay="300"><!-- data-aos-offset="0" data-aos-easing="ease-out-cubic" data-aos-duration="2000" -->
+						<div data-aos="fade-up" data-aos-offset="0" data-aos-delay="300">
 							<h2 class="tit mo_none">Sense the Wonder</h2>
 							<h3 class="subtit">세상의 경이로움에 <br><span class="highlight">매료되세요.</span></h3>
 							<div class="txt_box">
@@ -206,12 +206,16 @@
 	<div class="popup_wrap popup_main" data-popup="popup_terms" id="popupMain">
 		<div class="popup_inner">
 			<div class="popup_cont">
-				<h3 class="popup_tit">타이틀타이틀</h3>
+				<h3 class="popup_tit">소니 세미컨덕터 솔루션 <br>코리아 주식회사 설립 안내</h3>
 				<p>
-					텍스트 텍스트 텍스트 텍스트<br>
-					텍스트 텍스트 텍스트 텍스트<br>
-					텍스트 텍스트 텍스트 텍스트 123
+					이미지 센서 분야의 선도 기업으로서<br>
+					소니의 혁신적인 기술과 글로벌 네트워크를 기반으로, <br class="pc_br">
+					반도체&middot;전자부품&middot;디바이스에 있어 <br>
+					높은 품질의 제품과 서비스를 제공하겠습니다.
 				</p>
+				<div class="btn_wrap">
+					<a href="./notice.html" class="btns bctype1"><span>자세히 보기</span></a>
+				</div>
 			</div>
 			<div class="today_close">
 				<div class="today_check">
@@ -244,10 +248,10 @@
 				body = document.body;
 			if (!blnCookie) {
 				obj.classList.add('open');
-				body.classList.add('lockbody');
+				lock();
 			} else {
 				obj.classList.remove('open');
-				body.classList.remove('lockbody');
+				unlock();
 			}
 		}
 
@@ -257,7 +261,7 @@
 			var obj = eval("window." + winName),
 				body = document.body;
 			obj.classList.remove('open');
-			body.classList.remove('lockbody');
+			unlock();
 		}
 
 		//쿠키 가져오기  

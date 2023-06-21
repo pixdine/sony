@@ -11,10 +11,10 @@ function setCSS(){
 function checkDevice(){
 	$(window).on('resize', function(){
 		if (window.innerWidth > 768) {
-			//pc
+			//PC
 			$('body').removeClass('is-mobile').addClass('is-pc');
 		} else {
-			//mobile
+			//Mobile
 			$('body').removeClass('is-pc').addClass('is-mobile');
 		}
 	}).resize();
@@ -47,14 +47,15 @@ function allMenuOpen(){
 		}else{
 			//메뉴 열림
 			$(this).addClass('on').find('> em').text('전체 메뉴 닫기');
-			el.find('.allmenu_wrap').stop().slideDown().attr('tabindex' , 1);
+			el.find('.allmenu_wrap').stop().slideDown(function(){$(this).height('auto')}).attr('tabindex' , 1);
 		}
 
 		if($('body').hasClass('is-mobile') && $('.btn_menu').hasClass('on')){
-			$('body').addClass('lockbody2');
+			lock();
 		} else{
-			$('body').removeClass('lockbody2');
+			unlock();
 		}
+
 	});
 
 	//배경 클릭 시 닫힘
@@ -63,17 +64,17 @@ function allMenuOpen(){
 		el.find('.allmenu_wrap').stop().slideUp().removeAttr('tabindex');
 	});
 
-	//PC, MO 스크롤 관련 리사이즈
+	//PC, Mobile 스크롤 관련 리사이즈
 	$(window).on('resize', function(){
-		//MO & 전체메뉴 오픈 시
-		if($('body').hasClass('is-mobile') && $('.btn_menu').hasClass('on')){
-			$('body').addClass('lockbody2');
+		//Mobile & 전체메뉴 오픈 시
+		if($('body').hasClass('is-mobile') && $('.btn_menu').hasClass('on')){			
 			$('.header_bg').hide();
+			lock();
 		}
 		//PC & 전체메뉴 오픈 시
-		else if($('body').hasClass('is-pc') && $('.btn_menu').hasClass('on')){
-			$('body').removeClass('lockbody2');
+		else if($('body').hasClass('is-pc') && $('.btn_menu').hasClass('on')){			
 			$('.header_bg').show();
+			unlock();
 		}
 	}).resize();
 }
@@ -175,7 +176,7 @@ function layerPop(){
 		e.preventDefault();
 		var target = $(this).attr('data-popup-open');
 		$('[data-popup="' + target + '"]').addClass('open');
-		enableScrollLock();
+		lock();
 	});
 
 	//팝업 닫기
@@ -185,9 +186,9 @@ function layerPop(){
 		$('[data-popup="' + target + '"]').removeClass('open');
 		//이중 팝업
 		if( $('.popup_wrap.open').length == 1 ){
-			enableScrollLock();
+			lock();
 		} else {
-			disableScrollLock();
+			unlock();
 		}
 	});
 
@@ -195,38 +196,59 @@ function layerPop(){
 	$('.popup_wrap').on('click', function(e){
 		if( e.target == this ){
 			$(this).removeClass('open');
-			disableScrollLock();
+			unlock();
 		}
 	});
 }
 
 //스크롤 잠금
-var posY;
-function enableScrollLock(){
-	//posY = $(window).scrollTop();
-	//$('#wrap').css({top: -posY});
-	$('body').addClass('lockbody');
-};
-//스크롤 잠금 해제
-function disableScrollLock(){
-	//$('#wrap').removeAttr('style');
-	//posY = $(window).scrollTop(posY);
-	$('body').removeClass('lockbody');
-};
+function lock(){
+	const body = document.querySelector('body');
 
+	if (!body.getAttribute('scrollY')) {
+		const pageY = window.pageYOffset;
 
-function accordionUI(_el, _el2){
-	_el = $(_el);
-	if(_el.hasClass('on')){
-		//닫힘
-		_el.removeClass('on').attr('aria-label', '해당 내용 열기');
-		_el.next(_el2).stop().slideUp();
-
-	} else {
-		//열림
-		_el.addClass('on').attr('aria-label', '해당 내용 닫기');
-		_el.next(_el2).stop().slideDown();
+		body.setAttribute('scrollY', pageY.toString());
+		body.classList.add('lockbody');
+		body.style.top = `-${pageY}px`;
 	}
+}
+
+//스크롤 잠금 해제
+function unlock(){
+	const body = document.querySelector('body');
+
+	if (body.getAttribute('scrollY')) {
+		body.classList.remove('lockbody');
+		body.style.removeProperty('top');
+
+		window.scrollTo(0, Number(body.getAttribute('scrollY')));
+		body.removeAttribute('scrollY');
+	}
+}
+
+//아코디언
+function accodion(){
+	function eventHandler(_el, _el2){
+		_el = $(_el);
+		if(_el.hasClass('on')){
+			//닫힘
+			_el.removeClass('on').attr('aria-label', '해당 내용 열기');
+			_el.next(_el2).stop().slideUp();
+	
+		} else {
+			//열림
+			_el.addClass('on').attr('aria-label', '해당 내용 닫기');
+			_el.next(_el2).stop().slideDown();
+		}
+	}
+	
+	$('[data-accd-btn]').each(function(){
+		$(this).attr('aria-label', '해당 내용 열기');
+		$(this).click(function(){
+			eventHandler(this, $('[data-accd-cont]'));
+		});
+	});
 }
 
 $(document).ready(function(){
@@ -236,21 +258,8 @@ $(document).ready(function(){
 	allMenuOpen();
 	mainVisual();
 	goTop();
-
-	$('[data-accd-btn]').each(function(){
-		$(this).attr('aria-label', '해당 내용 열기');
-		$(this).click(function(){
-			accordionUI(this, $('[data-accd-cont]'));
-		});
-	});
-	
-	;
 	layerPop();
-	
-
-	//window.addEventListener("scroll", reveal);
-    //slider.init();
-	//accordionUI();
+	accodion();
 
 	AOS.init({
 		offset: 120,
