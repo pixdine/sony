@@ -108,19 +108,18 @@ function mainVisual(){
 				disableOnInteraction: false,
 			},
 			speed: 400,
-            
 			pagination: {
 				el: ".swiper-pagination",
 				clickable: true,
-			},			
+			},
 			navigation: {
 				nextEl: $this.find('.swiper_next'),
 				prevEl: $this.find('.swiper_prev'),
 			},
-            a11y: {
-                prevSlideMessage: '이전 슬라이드',
-                nextSlideMessage: '다음 슬라이드',
-            },
+			a11y: {
+				prevSlideMessage: '이전 슬라이드',
+				nextSlideMessage: '다음 슬라이드',
+			},
 			observer: true,
 			observeParents: true,
 			watchOverflow: true,
@@ -228,22 +227,27 @@ function unlock(){
 }
 
 //아코디언
-function accodion(){
+function accordion(){
 	function eventHandler(_el, _el2){
 		_el = $(_el);
 		if(_el.hasClass('on')){
 			//닫힘
 			_el.removeClass('on').attr('aria-label', '해당 내용 열기');
 			_el.next(_el2).stop().slideUp();
-	
+
 		} else {
 			//열림
 			_el.addClass('on').attr('aria-label', '해당 내용 닫기');
 			_el.next(_el2).stop().slideDown();
 		}
 	}
-	
+
 	$('[data-accd-btn]').each(function(){
+		/*
+		if(!$('[data-accd-btn]').hasClass('on')){
+			$(this).next('.accd_cont').show();
+		}
+		*/
 		$(this).attr('aria-label', '해당 내용 열기');
 		$(this).click(function(){
 			eventHandler(this, $('[data-accd-cont]'));
@@ -259,7 +263,7 @@ $(document).ready(function(){
 	mainVisual();
 	goTop();
 	layerPop();
-	accodion();
+	accordion();
 
 	AOS.init({
 		offset: 120,
