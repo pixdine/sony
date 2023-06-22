@@ -210,11 +210,11 @@
 	.contact_info .box .txt{padding:18px 10px;line-height:1.45;}
 }
 @media (max-width:320px){
-	.mo_br,
+    .main_sense .txt_box p br,
 	.page_tit .desc .mo_br,
 	.vision_list .txt br,
+	.sect_contact .desc br,
 	.page_contact .page_tit .desc br{display:none;}
-	.page_tit .desc{font-size:14px;}
 	.map_info .info_list .tel,
 	.map_info .info_list .fax{width:100%;}
 	.map_info .info_list .tel{margin-right:0;}
