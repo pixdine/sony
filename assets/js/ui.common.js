@@ -243,11 +243,6 @@ function accordion(){
 	}
 
 	$('[data-accd-btn]').each(function(){
-		/*
-		if(!$('[data-accd-btn]').hasClass('on')){
-			$(this).next('.accd_cont').show();
-		}
-		*/
 		$(this).attr('aria-label', '해당 내용 열기');
 		$(this).click(function(){
 			eventHandler(this, $('[data-accd-cont]'));

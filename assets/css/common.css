@@ -196,7 +196,7 @@ button[disabled], a.disabled{cursor:default;pointer-events:none;}
 .popup_main .popup_cont img{display:block;}
 .popup_main .today_close{display:flex;justify-content:space-between;padding:0;}
 .popup_main .today_close .today_check{width:70%;max-width:190px;}
-.popup_main .today_close .close{width:30%;max-width:105px;}
+.popup_main .today_close .close{width:30%;max-width:105px;margin-left:auto;}
 .popup_main .today_close button{width:100%;padding:20px;font-size:14px;line-height:20px;}
 .popup_main .btn_wrap{margin-top:25px;text-align:center;}
 
