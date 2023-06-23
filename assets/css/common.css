@@ -166,6 +166,7 @@ a:hover{text-decoration:none;}
 /* button */
 button[disabled], a.disabled{cursor:default;pointer-events:none;}
 
+.btnm{display:inline-block;position:relative;min-width:185px;height:64px;padding:0 10px;text-align:center;font-size:18px;font-weight:400;line-height:64px;}
 .btns{display:inline-block;position:relative;min-width:120px;height:40px;padding:0 10px;text-align:center;font-size:13px;font-weight:400;line-height:40px;}
 
 /* button : color */
@@ -249,6 +250,7 @@ button[disabled], a.disabled{cursor:default;pointer-events:none;}
 	.popup_main .popup_tit{margin-bottom:15px;font-size:24px;line-height:1.5;}
 
 	.txt_exp01:before{top:11px;}
+	.btnm{min-width:150px;height:46px;line-height:46px;font-size:16px;}
 }
 @media (max-width:320px){
 	.popup_main .popup_cont br{display:none;}

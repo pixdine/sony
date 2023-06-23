@@ -123,6 +123,13 @@
 .contact_info .box .tit{padding:18px 10px;background-color:#333;font-family:"SSTRoman","Noto Sans KR";color:#fff;line-height:1.5;}
 .contact_info .box .txt{padding:21px 10px;font-size:20px;}
 
+/* error */
+.page_error{padding:200px 0;text-align:center;}
+.page_error .ico{display:block;width:120px;margin:0 auto 40px;}
+.page_error .eng{margin-bottom:35px;font-size:24px;color:#444;line-height:1.75;}
+.page_error .desc{font-size:18px;color:#666;line-height:1.75;}
+.page_error .btn_wrap{margin-top:45px;}
+
 
 /************************* Media Query *************************/
 @media (max-width:1280px){
@@ -208,9 +215,14 @@
 	.contact_info .box{max-width:290px;width:100%;margin:0 auto;}
 	.contact_info .box .tit{padding:8px 10px;}
 	.contact_info .box .txt{padding:18px 10px;line-height:1.45;}
+
+	.page_error{padding:100px 0;}
+	.page_error .ico{width:80px;}
+	.page_error .eng{margin-bottom:20px;font-size:16px;}
+	.page_error .desc{font-size:16px;}
 }
 @media (max-width:320px){
-    .main_sense .txt_box p br,
+	.main_sense .txt_box p br,
 	.page_tit .desc .mo_br,
 	.vision_list .txt br,
 	.sect_contact .desc br,
@@ -218,4 +230,5 @@
 	.map_info .info_list .tel,
 	.map_info .info_list .fax{width:100%;}
 	.map_info .info_list .tel{margin-right:0;}
+	.page_error .tit_h3 .mo_br{display:none;}
 }
