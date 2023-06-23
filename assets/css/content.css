@@ -126,7 +126,7 @@
 /* error */
 .page_error{padding:200px 0;text-align:center;}
 .page_error .ico{display:block;width:120px;margin:0 auto 40px;}
-.page_error .eng{margin-bottom:35px;font-size:24px;color:#444;line-height:1.75;}
+.page_error .eng{margin-bottom:35px;font-size:24px;color:#444;}
 .page_error .desc{font-size:18px;color:#666;line-height:1.75;}
 .page_error .btn_wrap{margin-top:45px;}
 
@@ -183,7 +183,7 @@
 	.page_tit .desc .mo_br{display:block;}
 	
 	.tit_h3{margin-bottom:32px;font-size:30px;}
-	.sect_about .top{padding:65px 0 70px;text-align:center;}    
+	.sect_about .top{padding:65px 0 70px;text-align:center;}
 	.sect_about .top .desc{font-size:16px;line-height:1.5;}
 	.sect_vision{padding:64px 0 76px;}
 	.sect_vision .tit_h3{margin-bottom:32px;}
