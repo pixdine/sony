@@ -39,7 +39,7 @@
 .main_sense .highlight{display:inline-block;position:relative;padding:0 10px;}
 .main_sense .highlight:before{content:'';display:inline-block;position:absolute;left:0;top:1px;width:100%;height:42px;background-color:rgba(64,104,246,0.7);z-index:-1;}
 .main_sense .txt_box{padding:0 14px;}
-.main_sense .txt_box p{font-weight:300;;color:#888;line-height:2;}
+.main_sense .txt_box p{font-weight:300;;color:#fff;line-height:2;}
 .main_sense .txt_box + .txt_box{margin-top:64px;}
 
 /* main link */
